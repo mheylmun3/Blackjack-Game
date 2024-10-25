@@ -1,4 +1,4 @@
-import Day11BlackjackArt
+import Blackjack_Art
 import random
 import time
 import os
@@ -28,13 +28,13 @@ def card_value(card):
 
 def refresh(player_cards, dealer_cards, balance, done, bet=None, bet1=None, bet2=None, split=False, player_split1=None, player_split2=None):
     clear()
-    print(Day11BlackjackArt.logo)
-    print(Day11BlackjackArt.lines)
+    print(Blackjack_Art.logo)
+    print(Blackjack_Art.lines)
     if split:
         display_split_cards(player_split1, player_split2, dealer_cards, done, bet1, bet2)
     else:
         display_cards(player_cards, dealer_cards, done)
-    print(Day11BlackjackArt.lines)
+    print(Blackjack_Art.lines)
     if not split:
         print(f"\nYour bet: ${bet}")
     print(f"Your current balance is ${balance}\n")
@@ -59,9 +59,9 @@ def total(cards):
     return total_value
 
 def display_cards(player_cards, dealer_cards, done):
-    player_art = [Day11BlackjackArt.card_art[card].strip().splitlines() for card in player_cards]
-    dealer_art = [Day11BlackjackArt.card_art[card].strip().splitlines() for card in dealer_cards]
-    blank_card_art = Day11BlackjackArt.card_art["blank"].strip().splitlines()
+    player_art = [Blackjack_Art.card_art[card].strip().splitlines() for card in player_cards]
+    dealer_art = [Blackjack_Art.card_art[card].strip().splitlines() for card in dealer_cards]
+    blank_card_art = Blackjack_Art.card_art["blank"].strip().splitlines()
 
     max_lines = max(max(len(card) for card in player_art), max(len(card) for card in dealer_art), len(blank_card_art))
 
@@ -119,10 +119,10 @@ def display_cards(player_cards, dealer_cards, done):
     print(f"\nTotal = {total(player_cards)}")
 
 def display_split_cards(split1, split2, dealer_cards, done, bet1, bet2):
-    split1_art = [Day11BlackjackArt.card_art[card].strip().splitlines() for card in split1] if split1 else [[" "]]
-    split2_art = [Day11BlackjackArt.card_art[card].strip().splitlines() for card in split2] if split2 else [[" "]]
-    dealer_art = [Day11BlackjackArt.card_art[card].strip().splitlines() for card in dealer_cards] if dealer_cards else [[" "]]
-    blank_card_art = Day11BlackjackArt.card_art["blank"].strip().splitlines()
+    split1_art = [Blackjack_Art.card_art[card].strip().splitlines() for card in split1] if split1 else [[" "]]
+    split2_art = [Blackjack_Art.card_art[card].strip().splitlines() for card in split2] if split2 else [[" "]]
+    dealer_art = [Blackjack_Art.card_art[card].strip().splitlines() for card in dealer_cards] if dealer_cards else [[" "]]
+    blank_card_art = Blackjack_Art.card_art["blank"].strip().splitlines()
 
     max_lines = max(max(len(card) for card in split1_art), max(len(card) for card in split2_art), max(len(card) for card in dealer_art), len(blank_card_art))
 
@@ -226,10 +226,10 @@ while balance > 0:
     
     while True:
         clear()
-        print(Day11BlackjackArt.logo)
-        print(Day11BlackjackArt.lines)
-        print(Day11BlackjackArt.rules)
-        print(Day11BlackjackArt.lines)
+        print(Blackjack_Art.logo)
+        print(Blackjack_Art.lines)
+        print(Blackjack_Art.rules)
+        print(Blackjack_Art.lines)
         print(f"\nYour bet: ${bet}")
         print(f"Your current balance is ${balance}")
         deal = input("\nHow much would you like to bet? To keep the same bet, type 'd' to deal.\n")
